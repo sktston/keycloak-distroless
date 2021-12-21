@@ -1,4 +1,4 @@
-FROM jboss/keycloak:15.1.0 as base-env
+FROM quay.io/keycloak/keycloak:latest as base-env
 
 FROM gcr.io/distroless/java:11-nonroot
 COPY --chown=nonroot:nonroot --from=base-env /opt/jboss /opt/jboss
