@@ -1,14 +1,5 @@
-name: cd-action
-
-on:
-  push:
-    branches:
-      - main
-
-env:
-  CR_URL: ghcr.io
-  IMAGE_TAG: ${{ github.sha }}
-
+name: Publish to Registry
+on: [push]
 jobs:
   push-image:
     name: Push a keycloak-distroless image
@@ -24,3 +15,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
+          tag_names: true
+
